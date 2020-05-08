@@ -10,7 +10,7 @@ docker push kgurbey/multi-client:$SHA
 docker push kgurbey/multi-server:$SHA
 docker push kgurbey/multi-worker:$SHA
 
-kubectl apply -f k8s
+kubectl apply -f ./k8s
 kubectl set image deployments/server-deployment server=kgurbey/multi-server:$SHA
 kubectl set image deployments/client-deployment client=kgurbey/multi-client:$SHA
 kubectl set image deployments/worker-deployment worker=kgurbey/multi-server:$SHA
